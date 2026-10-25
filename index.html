@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HearYourAlbum</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/wavesurfer.js@7/dist/wavesurfer.min.js"></script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="min-h-screen p-4">
+
+  <!-- Title Bar / Desktop Window -->
+  <div class="win95-window max-w-4xl mx-auto">
+
+    <!-- Window Title Bar -->
+    <div class="win95-titlebar flex items-center justify-between px-2 py-1">
+      <div class="flex items-center gap-2">
+        <span class="text-sm font-bold text-white tracking-wide">🎵 HearYourAlbum</span>
+      </div>
+      <div class="flex gap-1">
+        <button class="win95-btn-sys" title="Minimize">_</button>
+        <button class="win95-btn-sys" title="Maximize">□</button>
+        <button class="win95-btn-sys win95-btn-close" title="Close">✕</button>
+      </div>
+    </div>
+
+    <!-- Menu Bar -->
+    <div class="win95-menubar flex gap-0 px-1 py-0.5 text-sm">
+      <span class="win95-menu-item">File</span>
+      <span class="win95-menu-item">Edit</span>
+      <span class="win95-menu-item">View</span>
+      <span class="win95-menu-item">Help</span>
+    </div>
+
+    <!-- Window Body -->
+    <div class="win95-body p-4">
+
+      <!-- Toolbar -->
+      <div class="win95-toolbar flex items-center gap-2 mb-4 p-2">
+        <button id="btn-add-box" class="win95-btn px-4 py-1 text-sm font-bold">
+          ➕ Add Track Box
+        </button>
+        <div class="win95-separator-v"></div>
+        <span class="text-xs text-gray-700" id="box-count-label">Boxes: 0 / 99</span>
+        <div class="win95-separator-v"></div>
+        <span class="text-xs text-gray-500 italic">Drag boxes to reorder</span>
+      </div>
+
+      <!-- Status / Info bar -->
+      <div id="status-bar-top" class="win95-inset text-xs text-gray-600 px-2 py-1 mb-3 hidden">
+        <span id="status-text"></span>
+      </div>
+
+      <!-- Boxes Container -->
+      <div id="boxes-container" class="flex flex-col gap-3 min-h-16">
+        <!-- Track boxes are injected here -->
+      </div>
+
+      <!-- Empty state -->
+      <div id="empty-state" class="win95-inset flex flex-col items-center justify-center py-12 mt-2 text-center">
+        <div class="text-4xl mb-2">💿</div>
+        <p class="text-sm text-gray-600 font-bold">No tracks yet.</p>
+        <p class="text-xs text-gray-500 mt-1">Click <strong>Add Track Box</strong> to begin building your album.</p>
+      </div>
+
+    </div>
+
+    <!-- Status Bar -->
+    <div class="win95-statusbar flex items-center gap-3 px-2 py-1 text-xs text-gray-700">
+      <span id="footer-box-count">0 track(s)</span>
+      <div class="win95-separator-v h-4"></div>
+      <span id="footer-playing">No track playing</span>
+      <div class="win95-separator-v h-4"></div>
+      <span>HearYourAlbum v1.0</span>
+    </div>
+
+  </div>
+
+  <!-- Track Box Template (hidden) -->
+  <template id="track-box-template">
+    <div class="win95-track-box" draggable="true">
+      <div class="win95-track-titlebar flex items-center justify-between px-2 py-1">
+        <span class="track-seq-label text-xs font-bold text-white">Track #<span class="seq-num">1</span></span>
+        <div class="flex items-center gap-1">
+          <button class="win95-btn-tiny drag-handle" title="Drag to reorder">⠿</button>
+          <button class="win95-btn-tiny btn-remove-box" title="Remove this box">✕</button>
+        </div>
+      </div>
+      <div class="p-3 flex flex-col gap-2">
+        <!-- Upload area -->
+        <div class="upload-area win95-inset flex flex-col items-center justify-center py-4 cursor-pointer gap-1">
+          <span class="text-2xl">🎵</span>
+          <span class="text-xs text-gray-600 font-bold">Click to upload MP3</span>
+          <input type="file" accept=".mp3,audio/mpeg" class="hidden file-input" />
+        </div>
+        <!-- Player area (hidden until file loaded) -->
+        <div class="player-area hidden flex flex-col gap-2">
+          <div class="flex items-center gap-2">
+            <button class="win95-btn btn-play-pause px-3 py-1 text-xs font-bold min-w-16">▶ Play</button>
+            <span class="track-name text-xs text-gray-700 truncate flex-1 win95-inset px-2 py-1"></span>
+          </div>
+          <div class="waveform-container win95-inset p-1">
+            <div class="waveform"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </template>
+
+  <script src="script.js"></script>
+</body>
+</html>

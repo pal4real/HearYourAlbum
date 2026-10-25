@@ -1,0 +1,304 @@
+/* ============================================================
+   HearYourAlbum — Windows 95 Style Sheet
+   ============================================================ */
+
+/* -- Base / Desktop -- */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #008080; /* Classic teal desktop */
+  font-family: "MS Sans Serif", "Microsoft Sans Serif", Arial, sans-serif;
+  font-size: 13px;
+  image-rendering: pixelated;
+}
+
+/* ============================================================
+   Win95 Core Border Utilities
+   ============================================================ */
+
+/* Raised 3-D border (buttons, windows, toolbars) */
+.win95-raised {
+  border-top:    2px solid #ffffff;
+  border-left:   2px solid #ffffff;
+  border-right:  2px solid #808080;
+  border-bottom: 2px solid #808080;
+  box-shadow: inset -1px -1px 0 #404040, inset 1px 1px 0 #dfdfdf;
+}
+
+/* Sunken / inset border (text fields, status areas) */
+.win95-sunken {
+  border-top:    2px solid #808080;
+  border-left:   2px solid #808080;
+  border-right:  2px solid #ffffff;
+  border-bottom: 2px solid #ffffff;
+  box-shadow: inset 1px 1px 0 #404040, inset -1px -1px 0 #dfdfdf;
+}
+
+/* ============================================================
+   Window
+   ============================================================ */
+.win95-window {
+  background-color: #c0c0c0;
+  border-top:    2px solid #ffffff;
+  border-left:   2px solid #ffffff;
+  border-right:  2px solid #404040;
+  border-bottom: 2px solid #404040;
+  box-shadow: 1px 1px 0 #808080, -1px -1px 0 #dfdfdf;
+}
+
+/* Title bar */
+.win95-titlebar {
+  background: linear-gradient(to right, #000080, #1084d0);
+  user-select: none;
+  cursor: default;
+}
+
+/* System buttons (_  □  ✕) */
+.win95-btn-sys {
+  background-color: #c0c0c0;
+  border-top:    1px solid #ffffff;
+  border-left:   1px solid #ffffff;
+  border-right:  1px solid #404040;
+  border-bottom: 1px solid #404040;
+  width: 18px;
+  height: 16px;
+  font-size: 9px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.win95-btn-sys:active {
+  border-top:    1px solid #404040;
+  border-left:   1px solid #404040;
+  border-right:  1px solid #ffffff;
+  border-bottom: 1px solid #ffffff;
+}
+.win95-btn-close:hover {
+  background-color: #ff6666;
+}
+
+/* Menu bar */
+.win95-menubar {
+  background-color: #c0c0c0;
+  border-bottom: 1px solid #808080;
+  user-select: none;
+}
+.win95-menu-item {
+  padding: 2px 8px;
+  cursor: default;
+  font-size: 12px;
+}
+.win95-menu-item:hover {
+  background-color: #000080;
+  color: #ffffff;
+}
+
+/* Window body */
+.win95-body {
+  background-color: #c0c0c0;
+}
+
+/* ============================================================
+   Toolbar
+   ============================================================ */
+.win95-toolbar {
+  background-color: #c0c0c0;
+  border-top:    1px solid #ffffff;
+  border-left:   1px solid #ffffff;
+  border-right:  1px solid #808080;
+  border-bottom: 1px solid #808080;
+}
+
+/* Vertical separator */
+.win95-separator-v {
+  width: 2px;
+  height: 20px;
+  border-left: 1px solid #808080;
+  border-right: 1px solid #ffffff;
+  display: inline-block;
+}
+
+/* ============================================================
+   Buttons
+   ============================================================ */
+.win95-btn {
+  background-color: #c0c0c0;
+  border-top:    2px solid #ffffff;
+  border-left:   2px solid #ffffff;
+  border-right:  2px solid #404040;
+  border-bottom: 2px solid #404040;
+  box-shadow: inset -1px -1px 0 #808080, inset 1px 1px 0 #dfdfdf;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 12px;
+  active-outline: none;
+  outline: none;
+  white-space: nowrap;
+}
+.win95-btn:hover {
+  background-color: #d4d0c8;
+}
+.win95-btn:active,
+.win95-btn.active {
+  border-top:    2px solid #404040;
+  border-left:   2px solid #404040;
+  border-right:  2px solid #ffffff;
+  border-bottom: 2px solid #ffffff;
+  box-shadow: inset 1px 1px 0 #808080, inset -1px -1px 0 #dfdfdf;
+  padding-top: 2px;
+  padding-left: 2px;
+}
+.win95-btn:focus {
+  outline: 1px dotted #000000;
+  outline-offset: -4px;
+}
+
+/* Tiny button (inside track box header) */
+.win95-btn-tiny {
+  background-color: #c0c0c0;
+  border-top:    1px solid #ffffff;
+  border-left:   1px solid #ffffff;
+  border-right:  1px solid #404040;
+  border-bottom: 1px solid #404040;
+  width: 18px;
+  height: 16px;
+  font-size: 11px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: inherit;
+}
+.win95-btn-tiny:active {
+  border-top:    1px solid #404040;
+  border-left:   1px solid #404040;
+  border-right:  1px solid #ffffff;
+  border-bottom: 1px solid #ffffff;
+}
+
+/* ============================================================
+   Inset / Sunken panels (waveform, file name, status)
+   ============================================================ */
+.win95-inset {
+  background-color: #ffffff;
+  border-top:    2px solid #808080;
+  border-left:   2px solid #808080;
+  border-right:  2px solid #ffffff;
+  border-bottom: 2px solid #ffffff;
+  box-shadow: inset 1px 1px 0 #404040;
+}
+
+/* ============================================================
+   Status bar
+   ============================================================ */
+.win95-statusbar {
+  background-color: #c0c0c0;
+  border-top: 1px solid #808080;
+}
+
+/* ============================================================
+   Track Box
+   ============================================================ */
+.win95-track-box {
+  background-color: #c0c0c0;
+  border-top:    2px solid #ffffff;
+  border-left:   2px solid #ffffff;
+  border-right:  2px solid #404040;
+  border-bottom: 2px solid #404040;
+  box-shadow: inset -1px -1px 0 #808080;
+  transition: opacity 0.15s;
+  position: relative;
+}
+
+/* Track box title bar */
+.win95-track-titlebar {
+  background: linear-gradient(to right, #000080, #1084d0);
+  user-select: none;
+}
+
+/* Drag states */
+.win95-track-box.dragging {
+  opacity: 0.45;
+  outline: 2px dashed #000080;
+}
+/* Swap target highlight */
+.win95-track-box.drag-over {
+  outline: 2px solid #ff0000;
+  background-color: #d4d0c8;
+}
+
+/* Upload area hover */
+.upload-area:hover {
+  background-color: #e8e8e8 !important;
+  border-color: #000080 !important;
+}
+.upload-area {
+  transition: background-color 0.1s;
+  cursor: pointer;
+  min-height: 72px;
+}
+
+/* Waveform container */
+.waveform-container {
+  min-height: 60px;
+  background-color: #000000;
+  padding: 4px;
+}
+
+.waveform {
+  width: 100%;
+  min-height: 52px;
+}
+
+/* ============================================================
+   Empty state
+   ============================================================ */
+#empty-state {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+/* ============================================================
+   Scrollbar (Win95 style via webkit)
+   ============================================================ */
+::-webkit-scrollbar {
+  width: 16px;
+  height: 16px;
+}
+::-webkit-scrollbar-track {
+  background-color: #c0c0c0;
+  border: 1px inset #808080;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #c0c0c0;
+  border-top:    2px solid #ffffff;
+  border-left:   2px solid #ffffff;
+  border-right:  2px solid #404040;
+  border-bottom: 2px solid #404040;
+}
+::-webkit-scrollbar-button {
+  background-color: #c0c0c0;
+  border-top:    2px solid #ffffff;
+  border-left:   2px solid #ffffff;
+  border-right:  2px solid #404040;
+  border-bottom: 2px solid #404040;
+  width: 16px;
+  height: 16px;
+}
+
+/* ============================================================
+   Utility
+   ============================================================ */
+.hidden { display: none !important; }
+.truncate {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
